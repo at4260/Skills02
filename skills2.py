@@ -162,9 +162,21 @@ def sum_zero(list1):
 
     """
 
-    # for num in list1:
-    #     if num < 0:
+    # put into a set to get rid of duplicates
+    list2 = set(list1)
 
+    #sort the list
+    list2 = sorted(list2)
+
+    new_list = []
+    final_list = []
+    for num in list2:
+        if num <= 0:
+            if abs(num) in list2:
+                new_list = [num, abs(num)]
+                final_list.append(new_list)
+    # FIXME tests pass, but how do you account for only one zero in the list?
+    return final_list
 
 
 def find_duplicates(words):
