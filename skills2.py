@@ -232,7 +232,19 @@ def adv_word_length_sorted_words(words):
 
     """
 
-    return []
+    new_dict = {}
+    for word in words:
+        key = len(word)
+        if key not in new_dict:
+            new_dict[key] = [word]
+        else:
+            new_dict[key] = new_dict[key] + [word]
+    
+    # this words because it sorts in place and leaves the dictionary structure in tact
+    for key, value in new_dict.items():
+        value.sort()
+
+    return new_dict.items()
 
 
 def pirate_talk(phrase):
