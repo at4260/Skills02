@@ -288,17 +288,14 @@ def pirate_talk(phrase):
 
     """
 
-    pirate_dict = {"sir": "matey", "hotel": "fleabag inn", "student": "swabbie"}
+    pirate_dict = {"sir": "matey", "hotel" : "fleabag inn", "student" : "swabbie", "boy" : "matey",
+    "madam" : "proud beauty", "professor" : "foul blaggart", "restaurant" : "galley", "your" : "yer",
+    "excuse" : "arr", "students" : "swabbies", "are" : "be", "lawyer" : "foul blaggart", 
+    "the" : "th'", "restroom" : "head", "my" : "me", "hello": "avast", "is" : "be", "man" : "matey" }
 
-    import re
     import string
 
-    phrase = "sir hotel student!"
-
-    pirate_dict = {"sir": "matey", "hotel": "fleabag inn", "student": "swabbie"}
-
-    # regex to split the punctuation off the phrase
-    new_words = re.findall(r"[\w']+|[.,!?;]", phrase)
+    new_words = phrase.split()
 
     new_list = []
     for word in new_words:
@@ -307,12 +304,11 @@ def pirate_talk(phrase):
             new_list.append(value)
         else:
             new_list.append(word)
-    print new_list
 
-    # FIXME this is printing a space between each word, including the punctuation
-    print string.join(new_list)
+    return string.join(new_list)
 
-    # http://stackoverflow.com/questions/15950672/join-split-words-and-punctuation-with-punctuation-in-the-right-place
+
+
 ##############################################################################
 # END OF SKILLS TEST; YOU CAN STOP HERE.
 
