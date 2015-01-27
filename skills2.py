@@ -208,23 +208,13 @@ def word_length(words):
 
     new_dict = {}
     for word in words:
-        key = word
-        value = len(word)
-        new_dict[key] = value
-    print new_dict
+        key = len(word)
+        if key not in new_dict:
+            new_dict[key] = [word]
+        else:
+            new_dict[key] = new_dict[key] + [word]
 
-    # new_list = []
-    # for key, value in new_dict.items():
-    #     twoitem_tuple = (value, key)
-    #     print twoitem_tuple
-
-    # for each_tuple in twoitem_tuple:
-    #     print each_tuple
-    # if twoitem_tuple[0] not in new_list:
-    #     new_list.append(twoitem_tuple)
-
-
-    # print new_list
+    return new_dict.items()
 
 
 def adv_word_length_sorted_words(words):
